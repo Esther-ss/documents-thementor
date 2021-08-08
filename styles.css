@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+  font: 12pt "Tahoma";
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+/* .page {
+  width: 21cm;
+  min-height: 29.7cm;
+  padding: 1cm;
+  margin: 1cm auto;
+  border: 1px #d3d3d3 solid;
+  border-radius: 3px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+} */
+.subpage {
+  padding: 2mm;
+  border: 2px black solid;
+  height: 330mm;
+}
+
+.namecard {
+  padding: 2mm;
+  border: 2px black solid;
+  height: 58mm;
+  border-radius: 2mm;
+}
+
+.finalresultcard {
+  padding: 2mm;
+  border: 2px black solid;
+  height: 15mm;
+  border-radius: 2mm;
+}
+
+.namecard-inside {
+  display: block;
+}
+p {
+  margin: 1mm;
+  display: inline-block;
+}
+
+.imagescss {
+  justify-content: space-between;
+  display: flex;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}
+
+@media print {
+  body,
+  page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+table,
+th,
+td {
+  border: 1.5px black solid;
+  font: 12pt "Tahoma";
+  text-align: center;
+  border-collapse: collapse;
+  padding: 3px;
+}

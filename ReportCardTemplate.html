@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" type='text/css'>
+    <title>Report Card</title>
+</head>
+
+<body>
+    <div class="report">
+        <div class="page">
+            <div class="subpage">
+                <h2 style="text-align: center;margin: 0%;"><strong>CBSE APPTITUDE TEST</strong></h2>
+
+                <span class="imagescss">
+                    <img src="logo.png" style="width: 105px; height: 105px;">
+                    <img src="Pics for assignment/{{CandidateName}}.png"
+                        style="width: 105px; height: 105px; border-radius: 8px;">
+                </span>
+                <br>
+                <div class="namecard">
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Name of Candidate</p>
+                        <p>:</p>
+                        <p>{{CandidateName}}</p>
+
+                    </span>
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Registration No</p>
+                        <p>:</p>
+                        <p>{{RegistrationNumber}}</p>
+                    </span>
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Grade</p>
+                        <p>:</p>
+                        <p>{{Grade}}</p>
+                    </span>
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Name of School</p>
+                        <p>:</p>
+                        <p>{{NameofSchool}}</p>
+                    </span>
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Address</p>
+                        <p>:</p>
+                        <p>{{Address}}</p>
+                    </span>
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Date of Birth</p>
+                        <p>:</p>
+                        <p>{{DateofBirth}}</p>
+                    </span>
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Gender</p>
+                        <p>:</p>
+                        <p>{{Gender}}</p>
+                    </span>
+                    <span class="namecard-inside">
+                        <p class="namecard-description">Date of Test</p>
+                        <p>:</p>
+                        <p>{{DateofTest}}</p>
+                    </span>
+
+                </div>
+                <br>
+                <div class="scorecard">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Question No</th>
+                            <th>Your Answer</th>
+                            <th>Correct Answer</th>
+                            <th>Outcome</th>
+                            <th>Score if correct</th>
+                            <th>Your Score</th>
+                        </tr>
+                        {% for row in ScoreData %}
+                        <tr>
+                            {% for column in row %}
+                            <td>{{ column }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+
+
+                    </table>
+                </div>
+                <br>
+                <div class="finalresultcard">
+                    <p><b><i>Total Score : </i></b>{{OverallScore}} / {{PossibleScore}}</p>
+                </div>
+                <br>
+                <div class="finalresultcard">
+                    <p><b><i>Final Result : </i></b>{{FinalResult}} </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+
+</html>
