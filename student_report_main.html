@@ -1,0 +1,635 @@
+      <!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Card</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <style>
+      /* Insérez ici le CSS que vous avez fourni */
+      .report {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        /* background-color: aquamarine; */
+        font-size: 12px;
+        border-color: black;
+        border-style: dashed;
+        /* background-image: url('https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png?_gl=1*1k662ef*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMDE5MTA2Mi4xNC4xLjE3MTAyNTIwMjUuNDIuMC4w'); */
+        background-size: 200px 200px;
+        background-repeat: no-repeat;
+        background-position: center; /* Centre l'image horizontalement et verticalement */
+        /* opacity: 0.5; Applique l'opacité uniquement à l'image de fond */
+      }
+
+      .page {
+        width: 100%;
+        height: 100%;
+        padding: 5mm;
+        box-sizing: border-box;
+      }
+
+      .subpage {
+         margin: 0 auto;
+        text-align: center;
+      }
+
+      .header-left {
+        float: left;
+        width: 30%;
+      }
+
+      .header-center {
+        display: inline-block;
+        width: 40%;
+        text-align: center;
+      }
+
+      .header-right {
+        float: right;
+        width: 30%;
+      }
+
+      .school-info {
+        white-space: nowrap;
+        /* Empêche le texte de passer à la ligne */
+      }
+
+      .school-logo {
+        border-radius: 50px;
+        height: 100px;
+        width: 100px;
+        margin-top: 0px;
+      }
+
+      .ministere,
+      .ministry-english {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+        white-space: nowrap;
+        /* Empêche le texte de passer à la ligne */
+      }
+
+      .titre-bulletin {
+        margin: auto;
+        margin-top: 10px;
+        width: 50%;
+        height: 30px;
+        padding-top: 10px;
+        text-align: center;
+        border: 3px solid black;
+        background-color: #f0f0f0;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .student-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        height: 150px;
+      }
+
+      .student-photo {
+        /* width: 20%; */
+        display: flex;
+        align-items: center;
+      }
+
+      .student-photo .student-image {
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+
+      .info-left,
+      .info-right {
+        width: 40%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .info-right {
+        text-align: right;
+      }
+
+      .info-left p,
+      .info-right p {
+        margin: 5px 0;
+        /* font-weight: bold; */
+        font-size: 14px;
+        white-space: nowrap;
+        /* Empêche le texte de passer à la ligne */
+      }
+
+      .notes-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .notes-table th,
+      .notes-table td {
+        border: 1px solid black;
+        padding: 8px;
+        /* background-color: black;
+  color: white; */
+        font-size: 12px;
+      }
+
+      .notes-table th {
+        text-align: center;
+      }
+
+      .additional-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        height: 150px;
+      }
+
+      .additional-info .info-block {
+        width: calc(
+          23% - 10px
+        ); /* Calcul de la largeur avec un espace de 10px entre chaque div */
+        border: 1px solid rgb(239, 229, 229);
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .additional-info .info-block-title {
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .additional-info .info-block-data {
+        background-color: lightgreen;
+        margin: 5px; /* Marge de 5px autour de chaque élément */
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .council-decisions {
+        margin-top: 10px;
+      }
+
+      .decision-block {
+        width: 100%; /* Utilise toute la largeur du conteneur */
+      }
+
+      .decision-title {
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .decision-row {
+        display: flex; /* Utilise le modèle flex pour aligner les éléments horizontalement */
+        justify-content: space-between; /* Répartit les éléments de la ligne sur toute la largeur */
+        white-space: nowrap;
+      }
+
+      .decision-item {
+        flex: 0 0 calc(30% - 10px); /* Répartit l'espace en 3 colonnes avec une marge de 10px entre chaque */
+        display: flex;
+        align-items: center;
+      }
+
+      .decision-item input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      .final-block {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      .final-item {
+        position: relative;
+      }
+
+      .final-rectangle {
+        border: 1px solid rgb(212, 212, 212);
+        background-color: #f0f0f0;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 5px;
+      }
+
+      .text {
+        margin-top: 5px;
+      }
+
+      .signature-box {
+        height: 80px;
+        border: 1px solid rgb(212, 212, 212);
+      }
+
+      .signature-line {
+        text-align: center;
+        /* margin-top: 10px; */
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="download-pdf">Télécharger le PDF</button>
+
+    <!-- Insérez ici le HTML de votre bulletin -->
+    <!DOCTYPE html>
+    <html lang="fr">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+        <title>Report Card</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+      </head>
+
+      <body>
+        <div class="report">
+          <div class="page">
+            <div class="subpage">
+              <div class="header-left">
+                <div class="ministere">
+                  MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+                </div>
+                <div class="school-info">
+                  ******************
+                  <br />
+                  NOM DE L'ÉCOLE
+                  <br />
+                  DÉVISE DE L'ECOLE
+                  <br />
+                  BP 1038, YAOUNDÉ - CAMEROUN
+                  <br />
+                  Tel: +237 XXXXXXX / +237 YYYYYYYY
+                </div>
+              </div>
+
+              <div class="header-center">
+                <img
+                  src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png?_gl=1*1k662ef*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMDE5MTA2Mi4xNC4xLjE3MTAyNTIwMjUuNDIuMC4w"
+                  alt="Logo de l'école"
+                  class="school-logo"
+                />
+              </div>
+
+              <div class="header-right">
+                <div class="ministry-english">
+                  MINISTRY OF SECONDARY EDUCATION
+                </div>
+                <div class="school-info">
+                  ******************
+                  <br />
+                  SCHOOL NAME
+                  <br />
+                  SCHOOL MOTTO
+                  <br />
+                  PoBox: 1038, YAOUNDE - CAMEROON
+                  <br />
+                  Tel: +237 XXXXXXX / +237 YYYYYYYY
+                </div>
+              </div>
+
+              <br />
+              <div class="titre-bulletin">
+                Bulletin de notes du premier trimestre
+              </div>
+
+              <div class="student-info">
+                <div class="info-left">
+                  <p>Nom & Prénom : <b>Oumarou Maïmouna</b></p>
+                  <p>Sexe : <b>Féminin</b></p>
+                  <p>Né(e) le : <b>13/03/2010 - xx ans</b></p>
+                  <p>Lieu : <b>Kousseri</b></p>
+                  <p>Matricule : <b>1584HBHJ</b></p>
+                </div>
+                <div class="student-photo">
+                  <img
+                    src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1709312118604x705345548196993900/femme%20noire.jpeg?_gl=1*1a748f5*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMzk0ODAzNy40Ni4xLjE3MTM5NTE1MzUuNjAuMC4w"
+                    alt="Photo de l'élève"
+                    class="student-image"
+                  />
+                </div>
+                <div class="info-right">
+                  <p>Redoublant(e) : <b>Non</b></p>
+                  <p>Classe : <b>3ème Allemand</b></p>
+                  <p>Effectif : <b>23</b></p>
+                  <p>Année Scolaire : <b>2023/2024</b></p>
+                  <p>Prof. Principal(e) : <b>Mme Youmbi Sophie</b></p>
+                </div>
+              </div>
+
+              <div class="notes-wrapper">
+                <table class="notes-table">
+                  <tr>
+                    <th>MATIÈRES</th>
+                    <th>COEF</th>
+                    <th>SEQ 1</th>
+                    <th>SEQ 2</th>
+                    <th>MOY</th>
+                    <th>N * C</th>
+                    <th>RANG</th>
+                    <th>APPRECIATION ET COMP. DÉVELOPPÉES</th>
+                    <th>VISA</th>
+                  </tr>
+                  <!-- Lignes de la table des notes générées dynamiquement -->
+                </table>
+              </div>
+
+              <div class="additional-info">
+                <div class="info-block">
+                  <div class="info-block-title">Résultats de l'élève</div>
+                  <div class="info-block-data">
+                    Total des points : <span id="total-points"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Total des coefficients :
+                    <span id="total-coefficients"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Moyenne de l'élève : <span id="student-average"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Range de l'élève : <span id="student-range"></span>
+                  </div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-title">Discipline de l'élève</div>
+                  <div class="info-block-data">
+                    Retard en min : <span id="student-late-minutes"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Absence(s) non justifiées :
+                    <span id="unexcused-absences"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Absencenc(e) justfiée(s) :
+                    <span id="excused-absences"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Sanctions : <span id="student-sanctions"></span>
+                  </div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-title">Récapitulatif</div>
+                  <div class="info-block-data">
+                    Moyenne du 1er trimestre :
+                    <span id="first-trimester-average"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Avis : <span id="student-opinion"></span>
+                  </div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-title">Profil de la classe</div>
+                  <div class="info-block-data">
+                    La + forte moy. : <span id="highest-average"></span>
+                  </div>
+                  <div class="info-block-data">
+                    La - forte moy. : <span id="lowest-average"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Moyenne de la classe : <span id="class-average"></span>
+                  </div>
+                  <div class="info-block-data">
+                    Taux de réussite : <span id="success-rate"></span>%
+                  </div>
+                </div>
+              </div>
+
+              <div class="council-decisions">
+                <div class="decision-block">
+                  <div class="decision-title">Décisions du conseil</div>
+                  <div class="decision-row">
+                    <div class="decision-item">
+                      <input type="checkbox" id="honor-roll" />
+                      <label for="honor-roll">Tableau d'honneur</label>
+                    </div>
+                    <div class="decision-item">
+                      <input type="checkbox" id="honor-roll-encouragements" />
+                      <label for="honor-roll-encouragements"
+                        >Tableau d'Honneur + Encouragements</label
+                      >
+                    </div>
+                    <div class="decision-item">
+                      <input type="checkbox" id="honor-roll-felicitations" />
+                      <label for="honor-roll-felicitations"
+                        >Tableau d'Honneur + Félicitations</label
+                      >
+                    </div>
+                  </div>
+                  <div class="decision-row">
+                    <div class="decision-item">
+                      <input type="checkbox" id="conduct-warning" />
+                      <label for="conduct-warning"
+                        >Avertissement Conduite</label
+                      >
+                    </div>
+                    <div class="decision-item">
+                      <input type="checkbox" id="conduct-blame" />
+                      <label for="conduct-blame">Blâme Conduite</label>
+                    </div>
+                    <div class="decision-item">
+                      <input type="checkbox" id="conduct-exclusion" />
+                      <label for="conduct-exclusion"
+                        >Jours(s) d'Exclusion Conduite</label
+                      >
+                    </div>
+                  </div>
+                  <div class="decision-row">
+                    <div class="decision-item">
+                      <input type="checkbox" id="work-warning" />
+                      <label for="work-warning">Avertissement Travail</label>
+                    </div>
+                    <div class="decision-item">
+                      <input type="checkbox" id="work-blame" />
+                      <label for="work-blame">Blâme Travail</label>
+                    </div>
+                    <div class="decision-item">
+                      <input type="checkbox" id="work-exclusion" />
+                      <label for="work-exclusion">Exclusion Travail</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="final-block">
+                <div class="final-item" style="width: 25%">
+                  <div class="final-rectangle">
+                    <div class="text">Visa du parent</div>
+                  </div>
+                  <div class="signature-box"></div>
+                </div>
+                <div class="final-item" style="width: 40%">
+                  <div class="final-rectangle">
+                    <div class="text">Appréciation générale</div>
+                  </div>
+                  <div class="signature-box"></div>
+                </div>
+                <div class="final-item" style="width: 35%">
+                  <div class="final-rectangle">
+                    <div class="text">Visa du chef d'établissement</div>
+                  </div>
+                  <div class="signature-box">
+                    <div class="signature-line">
+                      Fait à Yaoundé, le 12/03/2024
+                    </div>
+                    <div class="signature-line">
+                      Signature/Cachet du chef d'établissement
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>
+                Ce document est invalide sans le cachet et/ou la signature du
+                chef d'établissement.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <script>
+       function setupTableHeaders(periode) {
+    let headers = ["MATIÈRES", "COEF"];
+    switch(periode) {
+        case "1ère séquence":
+            headers.push("SEQ 1");
+            break;
+        case "2ème séquence":
+            headers.push("SEQ 2");
+            break;
+        case "1er trimestre":
+            headers.push("SEQ 1", "SEQ 2");
+            break;
+        case "3ème séquence":
+            headers.push("SEQ 3");
+            break;
+        case "4ème séquence":
+            headers.push("SEQ 4");
+            break;
+        case "2ème trimestre":
+            headers.push("SEQ 3", "SEQ 4");
+            break;
+        case "5ème séquence":
+            headers.push("SEQ 5");
+            break;
+        case "6ème séquence":
+            headers.push("SEQ 6");
+            break;
+        case "3ème trimestre":
+            headers.push("SEQ 5", "SEQ 6");
+            break;
+        default:
+            alert("Période non reconnue: " + periode);
+            return; // Pour prévenir l'ajout d'en-têtes incorrects
+    }
+    headers.push("MOY", "N * C", "RANG", "APPRECIATION", "VISA");
+
+    let table = document.querySelector(".notes-table");
+    while (table.rows.length > 0) {
+        table.deleteRow(0); // Nettoie la table avant de configurer les nouveaux en-têtes
+    }
+    let headerRow = table.insertRow(0);
+    headers.forEach(header => {
+        let th = document.createElement("th");
+        th.textContent = header;
+        headerRow.appendChild(th);
+    });
+}
+          
+          function generateNotesTable(periode) {
+              var matieres = ["Français", "Mathématiques", "Physique", "Chimie"];
+              var professeurs = ["Mme Youmbi Sophie", "M. Tchoumi Paul", "Mme Nkoumou Lucie", "M. Ngombe Jean"];
+              var coefficients = [3, 4, 2, 2];
+              var notes = {
+                  '1': [12, 15, 9, 13],
+                  '2': [14, 14, 10, 12],
+                  '3': [11, 12, 8, 10],
+                  '4': [13, 14, 9, 11],
+                  '5': [10, 12, 7, 9],
+                  '6': [12, 13, 8, 10]
+              };
+              var appreciations = [
+                  "Bonne compréhension des concepts.",
+                  "Excellente participation en classe.",
+                  "Nécessite une amélioration dans les domaines clés.",
+                  "Très bonne progression ce trimestre."
+              ];
+              var rangs = ["12", "7", "15", "2"];  // Liste de rangs pour chaque matière
+              var visas = [
+                  "https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1712406205833x695215266337524400/signature_image.png?_gl=1*1oo31t4*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxNDM3OTA5Ny41MC4xLjE3MTQ0MjYyNjQuNjAuMC4w",
+                  "url_signature_paul.jpg",
+                  "https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1712406205833x695215266337524400/signature_image.png?_gl=1*1oo31t4*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxNDM3OTA5Ny41MC4xLjE3MTQ0MjYyNjQuNjAuMC4w",
+                  "url_signature_jean.jpg"
+              ];
+          
+              let table = document.querySelector(".notes-table");
+              while (table.rows.length > 0) {
+                  table.deleteRow(0);
+              }
+          
+              setupTableHeaders(periode);
+          
+              matieres.forEach((matiere, index) => {
+                  let row = table.insertRow(-1);
+                  row.insertCell(-1).textContent = matiere + " (" + professeurs[index] + ")";
+                  row.insertCell(-1).textContent = coefficients[index];
+          
+                  let seqNums = periode.includes("séquence") ? [parseInt(periode[0])] : [1, 2];
+                  let total = 0;
+                  seqNums.forEach(seqNum => {
+                      let note = notes[seqNum.toString()][index];
+                      let cell = row.insertCell(-1);
+                      cell.textContent = note;
+                      total += note;
+                  });
+          
+                  let moyenne = total / seqNums.length;
+                  row.insertCell(-1).textContent = moyenne.toFixed(1);
+                  row.insertCell(-1).textContent = (moyenne * coefficients[index]).toFixed(1);
+                  row.insertCell(-1).textContent = rangs[index];  // Utilisez les rangs prédéfinis
+                  row.insertCell(-1).textContent = appreciations[index];
+          
+                  let visaCell = row.insertCell(-1);
+                  let img = document.createElement('img');
+                  img.src = visas[index];
+                  img.alt = "Signature de " + professeurs[index];
+                  img.style.height = '50px';
+                  visaCell.appendChild(img);
+              });
+          }
+          
+          document.addEventListener("DOMContentLoaded", function() {
+              generateNotesTable("2ème trimestre");
+          });
+          </script>
+          
+          
+
+          
+
+          
+          
+      </body>
+    </html>
+  </body>
+</html>
+

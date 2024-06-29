@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procès Verbal</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            page-break-inside: avoid;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 10px;
+        }
+
+        .header-section {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px dotted #ccc;
+        }
+
+        .header-left, .header-right {
+            width: 25%;
+            text-align: center;
+        }
+
+        .header-center {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-center img {
+            height: 80px;
+        }
+
+        .ministere, .ministry-english {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .school-info {
+            font-size: 11px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .header-text {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px dotted #ccc;
+        }
+
+        .header-text-left{ 
+            width: 50%;
+            text-align: left;
+        }
+        .header-text-right {
+            display: flex;
+            justify-content: flex-end;
+            width: 50%;
+           
+            margin: 5px 0;
+          writing-mode: horizontal-tb;
+          text-align: right;
+          height: 200px;
+          padding: auto;
+          line-height: 1;
+          font-size: small;
+         
+        }
+
+        .header-text p {
+            margin: 5px 0;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .proc-verbal {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .proc-verbal h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            font-size: 10pt;
+            text-align: left;
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+            border: 1px dotted black;
+            font-weight: bold;
+        }
+
+        .coef-row td {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            font-size: 10pt;
+            text-align: center;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                background-color: white;
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 20mm;
+                box-shadow: none;
+                page-break-after: avoid;
+            }
+
+            footer {
+                position: absolute;
+                bottom: 30mm;
+                left: 20mm;
+                right: 20mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-section">
+                <div class="header-left">
+                    <div class="ministere">République du Cameroun<br>Paix - Travail - Patrie</div>
+                    <div class="school-info">Ministère des Enseignements Secondaires</div>
+                </div>
+                <div class="header-center">
+                    <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png?_gl=1*1k662ef*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMDE5MTA2Mi4xNC4xLjE3MTAyNTIwMjUuNDIuMC4w" alt="Logo de l'école">
+                    <div class="school-info">Lycée Technique de Yaoundé</div>
+                </div>
+                <div class="header-right">
+                    <div>
+                        <div class="ministry-english">Republic of Cameroon<br>Peace - Work - Fatherland</div>
+                        <div class="school-info">Ministry of Secondary Education</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-text">
+                <div class="header-text-left">
+                    <p>Sequence : Cinquième Sequence</p>
+                    <p>Année Scolaire : 2024-2025</p>
+                </div>
+                <div class="header-text-right">
+                    <p>École : Complexe Scolaire V Bilingue MK2</p>
+                    <p>Classe : Terminale D</p>
+                    <p>Effectif : 12 élèves (F: 5, M: 7)</p>
+                    <p style="font-style: italic;">Classement par ordre de mérite</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="proc-verbal">
+            <h2>Procès Verbal</h2>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Sexe</th>
+                        <th>Mathématiques</th>
+                        <th>Physique</th>
+                        <th>Chimie</th>
+                        <th>Biologie</th>
+                        <th>Histoire</th>
+                        <th>Géographie</th>
+                        <th>Anglais</th>
+                        <th>Français</th>
+                    </tr>
+                </thead>
+                <tbody id="student-table">
+                    <!-- Les données des étudiants seront ajoutées ici via JavaScript -->
+                </tbody>
+                <tfoot>
+                    <tr class="coef-row">
+                        <td colspan="3">Coef.</td>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <footer class="footer">
+            <div>
+                <p>Le Chef d'Établissement</p>
+                <p>Signature</p>
+            </div>
+            <div>
+                <p>Le Censeur</p>
+                <p>Signature</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Script JavaScript pour charger les données des étudiants depuis un fichier JSON
+        fetch('proces.json')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('student-table');
+                data.forEach(student => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${student.nom}</td>
+                        <td>${student.prenom}</td>
+                        <td>${student.sexe}</td>
+                        <td>${student.mathematiques}</td>
+                        <td>${student.physique}</td>
+                        <td>${student.chimie}</td>
+                        <td>${student.biologie}</td>
+                        <td>${student.histoire}</td>
+                        <td>${student.geographie}</td>
+                        <td>${student.anglais}</td>
+                        <td>${student.francais}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "company": {
+    "logo": "https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png?_gl=1*1k662ef*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMDE5MTA2Mi4xNC4xLjE3MTAyNTIwMjUuNDIuMC4w",
+    "contact": "contact@school.com"
+  },
+  "tickets": [
+    {
+      "type": "entree",
+      "studentName": "---",
+      "date": "---",
+      "time": "---",
+      "motif": "---"
+    },
+    {
+      "type": "---",
+      "studentName": "---",
+      "date": "---",
+      "time": "---",
+      "motif": "---"
+    }
+  ],
+  "signature": "Mr/mrs ---"
+}

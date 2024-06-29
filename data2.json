@@ -1,0 +1,22 @@
+{
+    "matieres": ["Français", "Mathématiques", "Physique", "Chimie"],
+    "coefficients": [3, 4, 2, 2],
+    "sequences": {
+      "SEQ 1": [12, 15, 9, 13],
+      "SEQ 2": [14, 14, 10, 12]
+    },
+    "appreciations": [
+      "Bonne compréhension des concepts.",
+      "Excellente participation en classe.",
+      "Nécessite une amélioration dans les domaines clés.",
+      "Très bonne progression ce trimestre."
+    ],
+    "rangs": ["12", "7", "15", "2"],
+    "visas": [
+      "url_signature_mme_sophie.jpg",
+      "url_signature_m_tchoumi.jpg",
+      "url_signature_mme_lucie.jpg",
+      "url_signature_m_ngombe.jpg"
+    ]
+  }
+  
