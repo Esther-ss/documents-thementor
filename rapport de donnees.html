@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapport Mensuel d'Activité</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left, .header-right {
+            width: 30%;
+            text-align: center;
+        }
+
+        .header-center {
+            width: 40%;
+            text-align: center;
+        }
+
+        .ministere, .ministry-english {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .school-info {
+            font-size: 12px;
+        }
+
+        .school-logo {
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .titre-doc {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .activity-report {
+            margin-bottom: 20px;
+        }
+
+        .activity-report h3 {
+            margin-bottom: 10px;
+        }
+
+        .activity-report table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .activity-report table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .activity-report th {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .summary {
+            margin-top: 20px;
+        }
+
+        .summary h4 {
+            margin-bottom: 10px;
+        }
+
+        .summary p {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <div class="ministere" style="font-size: 16px; font-weight: bold;">
+                MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+            </div>
+            <div class="school-info" style="font-size: 12px;">
+                ****************** <br />
+                ÉCOLE PRIMAIRE XYZ <br />
+                DÉVISE DE L'ÉCOLE <br />
+                BP 1038, YAOUNDÉ - CAMEROUN <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+
+        <div class="header-center">
+            <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png"
+                 alt="Logo de l'école" class="school-logo"/>
+        </div>
+
+        <div class="header-right">
+            <div class="ministry-english" style="font-size: 14px; font-weight: bold;">
+                MINISTRY OF SECONDARY EDUCATION
+            </div>
+            <div class="school-info">
+                ******************
+                <br />
+                SCHOOL NAME
+                <br />
+                SCHOOL MOTTO
+                <br />
+                PoBox: 1038, YAOUNDE - CAMEROON
+                <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+    </div>
+
+    <div class="titre-doc">
+        Rapport Mensuel d'Activité
+    </div>
+
+    <div class="activity-report">
+        <h3>Activités Réalisées ce Mois-ci</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Activité</th>
+                    <th>Responsable</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Activités à remplir dynamiquement -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="activity-report">
+        <h3>Statistiques Clés</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Chiffre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Statistiques à remplir dynamiquement -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="summary">
+        <h4>Résumé du Mois</h4>
+        <p>
+            <!-- Résumé à remplir dynamiquement -->
+        </p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Charger les données depuis le fichier JSON
+    fetch('rapportm.json')
+        .then(response => response.json())
+        .then(data => {
+            // Remplir le tableau des activités
+            const activites = data.activites;
+            const tbodyActivites = document.querySelector('.activity-report table tbody');
+            activites.forEach(activite => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${activite.date}</td>
+                    <td>${activite.activite}</td>
+                    <td>${activite.responsable}</td>
+                    <td>${activite.statut}</td>
+                `;
+                tbodyActivites.appendChild(row);
+            });
+
+            // Remplir le tableau des statistiques
+            const statistiques = data.statistiques;
+            const tbodyStatistiques = document.querySelectorAll('.activity-report table tbody')[1];
+            statistiques.forEach(stat => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${stat.description}</td>
+                    <td>${stat.chiffre}</td>
+                `;
+                tbodyStatistiques.appendChild(row);
+            });
+
+            // Remplir le résumé du mois
+            const resumeTexte = data.resume.texte;
+            const resumeElement = document.querySelector('.summary p');
+            resumeElement.textContent = resumeTexte;
+        })
+        .catch(error => console.error('Erreur lors du chargement des données:', error));
+});
+</script>
+</body>
+</html>

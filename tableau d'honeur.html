@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau d'Honneur</title>
+    <style>
+        /* Styles globaux */
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf0e6; /* Beige doré */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .certificate-container {
+            width: 80%;
+            max-width: 800px;
+            padding: 40px;
+            border: 10px solid #aaa;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+        }
+
+        .certificate-header {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .certificate-subheader {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+       
+        .certificate-name {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px 0;
+    font-family: 'Arial', sans-serif; /* Exemple de police */
+    color: #333; /* Couleur du texte */
+    text-align: center; /* Centrage du texte */
+}
+
+
+
+        .certificate-text {
+            font-size: 1em;
+            margin: 10px 0;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            font-size: 1em;
+        }
+
+        .footer div {
+            width: 30%;
+            text-align: center;
+        }
+
+        .ministere {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .school-info {
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .school-logo {
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Fin des styles CSS */
+
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="ministere">
+            MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+        </div>
+        <div class="school-info">
+            ******************
+            <br />
+            NOM DE L'ÉCOLE
+            <br />
+            DÉVISE DE L'ECOLE
+            <br />
+            BP 1038, YAOUNDÉ - CAMEROUN
+            <br />
+            Tel: +237 XXXXXXX / +237 YYYYYYYY
+        </div>
+        <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png"
+             alt="Logo de l'école" class="school-logo"/>
+        <h1 class="certificate-header">TABLEAU D'HONNEUR</h1>
+        <h2 class="certificate-subheader">En Reconnaissance pour son travail et son assiduité,</h2>
+        <p>LE CERTIFICAT EST PRÉSENTÉ À</p>
+        <div class="certificate-name" id="honorsList">
+            <!-- Les éléments seront ajoutés ici par JavaScript -->
+        </div>
+        <div class="footer">
+            <div>
+                <p>Date: 5 Juillet 2024</p>
+            </div>
+            <div>
+                <p>Signature</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+         document.addEventListener('DOMContentLoaded', () => {
+            fetch('honeur.json')
+                .then(response => response.json())
+                .then(student => {
+                    const honorsList = document.getElementById('honorsList');
+
+                    const studentDiv = document.createElement('div');
+                    studentDiv.textContent = ` ${student.prenom} ${student.nom} - Moyenne: ${student.moyenne.toFixed(2)}`;
+                    studentDiv.classList.add('certificate-text');
+                    honorsList.appendChild(studentDiv);
+                })
+                .catch(error => console.error('Erreur lors du chargement des données:', error));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificat de Prise / Reprise de Service</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left, .header-right {
+            width: 30%;
+            text-align: center;
+        }
+
+        .header-center {
+            width: 40%;
+            text-align: center;
+        }
+
+        .ministere, .ministry-english {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .school-info {
+            font-size: 12px;
+        }
+
+        .school-logo {
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .titre-doc {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .content {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .signature {
+            margin-top: 50px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <div class="ministere" style="font-size: 16px; font-weight: bold;">
+                MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+            </div>
+            <div class="school-info" style="font-size: 12px;">
+                ****************** <br />
+                ÉCOLE PRIMAIRE XYZ <br />
+                DÉVISE DE L'ÉCOLE <br />
+                BP 1038, YAOUNDÉ - CAMEROUN <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+
+        <div class="header-center">
+            <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png"
+                 alt="Logo de l'école" class="school-logo"/>
+        </div>
+
+        <div class="header-right">
+            <div class="ministry-english">
+                MINISTRY OF SECONDARY EDUCATION
+            </div>
+            <div class="school-info">
+                ******************
+                <br />
+                SCHOOL NAME
+                <br />
+                SCHOOL MOTTO
+                <br />
+                PoBox: 1038, YAOUNDE - CAMEROON
+                <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+    </div>
+
+    <div class="titre-doc">
+        Certificat de Prise / Reprise de Service
+    </div>
+
+    <div class="content">
+        <p>Je soussigné(e), <strong>Nom du Responsable</strong>, certifie que :</p>
+        <p>
+            <strong>Nom et Prénom :</strong> <span id="name"></span><br>
+            <strong>Matricule :</strong> <span id="registrationNumber"></span><br>
+            <strong>Fonction :</strong> <span id="position"></span><br>
+            <strong>Lieu d'Affectation :</strong> <span id="location"></span><br>
+            <strong>Date de Prise de Service :</strong> <span id="startDate"></span><br>
+            <strong>Date de Reprise de Service :</strong> <span id="resumptionDate"></span>
+        </p>
+        <p>A pris/repris service le <span id="serviceDate"></span> à <span id="serviceLocation"></span>.</p>
+    </div>
+
+    <div class="signature">
+        <p>Fait à <span id="location"></span>, le <span id="date"></span></p>
+        <p><strong>Nom du Responsable</strong></p>
+        <p>Fonction du Responsable</p>
+    </div>
+</div> 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('certificatdeprise.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('name').innerText = data.name;
+            document.getElementById('registrationNumber').innerText = data.registrationNumber;
+            document.getElementById('position').innerText = data.position;
+            document.getElementById('location').innerText = data.location;
+            document.getElementById('startDate').innerText = data.startDate;
+            document.getElementById('resumptionDate').innerText = data.resumptionDate;
+            document.getElementById('serviceDate').innerText = data.serviceDate;
+            document.getElementById('serviceLocation').innerText = data.serviceLocation;
+            document.getElementById('date').innerText = data.date;
+        })
+        .catch(error => console.error('Erreur lors du chargement des données :', error));
+});
+</script>
+</body>
+</html>

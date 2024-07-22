@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Annuaire Téléphonique</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left, .header-right {
+            width: 30%;
+            text-align: center;
+        }
+
+        .header-center {
+            width: 40%;
+            text-align: center;
+        }
+
+        .ministere, .ministry-english {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .school-info {
+            font-size: 12px;
+        }
+
+        .school-logo {
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .titre-doc {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <div class="ministere" style="font-size: 16px; font-weight: bold;">
+                MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+            </div>
+            <div class="school-info" style="font-size: 12px;">
+                ****************** <br />
+                ÉCOLE PRIMAIRE XYZ <br />
+                DÉVISE DE L'ÉCOLE <br />
+                BP 1038, YAOUNDÉ - CAMEROUN <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+
+        <div class="header-center">
+            <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png"
+                 alt="Logo de l'école" class="school-logo"/>
+        </div>
+
+        <div class="header-right">
+            <div class="ministry-english">
+                MINISTRY OF SECONDARY EDUCATION
+            </div>
+            <div class="school-info">
+                ******************
+                <br />
+                SCHOOL NAME
+                <br />
+                SCHOOL MOTTO
+                <br />
+                PoBox: 1038, YAOUNDE - CAMEROON
+                <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+    </div>
+
+    <div class="titre-doc">
+        Annuaire Téléphonique
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Poste</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Données des personnels -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('annuaire.json')
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.querySelector('tbody');
+
+            data.personnels.forEach(personnel => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${personnel.nom}</td>
+                    <td>${personnel.prenom}</td>
+                    <td>${personnel.poste}</td>
+                    <td>${personnel.telephone}</td>
+                    <td>${personnel.email}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Erreur lors du chargement des données :', error));
+});
+</script>
+</body>
+</html>

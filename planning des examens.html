@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendrier des Examens</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left, .header-right {
+            text-align: center;
+        }
+
+        .header-center {
+            text-align: center;
+        }
+
+        .school-name {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .school-motto {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .school-info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .ministere {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .ministry-english {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #555;
+        }
+
+        td {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <div class="ministere">MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES</div>
+            <div class="school-info">ÉCOLE PRIMAIRE XYZ<br>DÉVISE DE L'ÉCOLE<br>B.P. 1038, YAOUNDÉ - CAMEROUN<br>Tel: +237 XXXXXXX / +237 YYYYYYYY</div>
+        </div>
+
+        <div class="header-center">
+            <img src="chemin/vers/le/logo.png" alt="Logo de l'école" style="max-width: 100%; height: auto;">
+        </div>
+
+        <div class="header-right">
+            <div class="ministry-english">MINISTRY OF SECONDARY EDUCATION</div>
+            <div class="school-info">SCHOOL NAME<br>SCHOOL MOTTO<br>PoBox: 1038, YAOUNDE - CAMEROON<br>Tel: +237 XXXXXXX / +237 YYYYYYYY</div>
+        </div>
+    </div>
+
+    <div class="title">
+        Calendrier des Examens
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Épreuve</th>
+                <th>Heure</th>
+                <th>Classe</th>
+                <th>Salle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les données seront insérées dynamiquement ici -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+// Exemple de données JSON simulées
+const examens = [
+    {
+        "date": "2024-09-15",
+        "epreuve": "Mathématiques",
+        "heure": "08:00 - 10:00",
+        "classe": "6ème A",
+        "salle": "Salle 1"
+    },
+    {
+        "date": "2024-09-16",
+        "epreuve": "Histoire",
+        "heure": "10:00 - 12:00",
+        "classe": "6ème B",
+        "salle": "Salle 2"
+    },
+    {
+        "date": "2024-09-17",
+        "epreuve": "Physique",
+        "heure": "08:00 - 10:00",
+        "classe": "5ème A",
+        "salle": "Salle 3"
+    },
+    {

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau d'Honneur</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .certificate-container {
+            width: 80%;
+            max-width: 800px;
+            padding: 40px;
+            border: 10px solid #aaa;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+            margin-top: 20px; /* Espace au-dessus du titre */
+        }
+        .certificate-header {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .certificate-subheader {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .certificate-name {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .certificate-text {
+            font-size: 1em;
+            margin: 20px 0;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            font-size: 1em;
+        }
+        .footer div {
+            width: 30%;
+            text-align: center;
+        }
+        .border-design {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid #000;
+            margin: 20px;
+            border-radius: 8px;
+        }
+        .corner-decorations {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+        /* En-tête ministériel */
+        .ministere {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .school-info {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="border-design"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ornament_1.svg/1200px-Ornament_1.svg.png" class="corner-decorations top-left" alt="Decoration">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ornament_1.svg/1200px-Ornament_1.svg.png" class="corner-decorations top-right" alt="Decoration">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ornament_1.svg/1200px-Ornament_1.svg.png" class="corner-decorations bottom-left" alt="Decoration">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ornament_1.svg/1200px-Ornament_1.svg.png" class="corner-decorations bottom-right" alt="Decoration">
+        
+        <!-- En-tête ministériel -->
+        <div class="ministere">
+            MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+        </div>
+        <div class="school-info">
+            ******************
+            <br />
+            NOM DE L'ÉCOLE
+            <br />
+            DÉVISE DE L'ECOLE
+            <br />
+            BP 1038, YAOUNDÉ - CAMEROUN
+            <br />
+            Tel: +237 XXXXXXX / +237 YYYYYYYY
+        </div>
+
+        <h1 class="certificate-header">TABLEAU D'HONNEUR</h1>
+        <h2 class="certificate-subheader">En Reconnaissance</h2>
+        <p>LE CERTIFICAT EST PRÉSENTÉ À</p>
+        <div class="certificate-name">Benjamin Shah</div>
+        <p class="certificate-text">Pour ses performances académiques exceptionnelles et son dévouement exemplaire durant l'année scolaire 2023-2024.</p>
+        <div class="footer">
+            <div>
+                <p>Date: 5 Juillet 2024</p>
+            </div>
+            <div>
+                <p>Signature</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

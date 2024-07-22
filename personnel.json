@@ -1,0 +1,26 @@
+{
+    "personnel": [
+      {
+        "nom": "Doe",
+        "prenom": "John",
+        "poste": "Enseignant",
+        "email": "john.doe@example.com",
+        "telephone": "+237 XXXXXXX"
+      },
+      {
+        "nom": "Smith",
+        "prenom": "Jane",
+        "poste": "Directeur",
+        "email": "jane.smith@example.com",
+        "telephone": "+237 YYYYYYYY"
+      },
+      {
+        "nom": "Williams",
+        "prenom": "Alice",
+        "poste": "Secrétaire",
+        "email": "alice.williams@example.com",
+        "telephone": "+237 ZZZZZZZZ"
+      }
+    ]
+  }
+  

@@ -1,0 +1,34 @@
+{
+    "personnels": [
+        {
+            "nom": "Dupont",
+            "prenom": "Jean",
+            "sexe": "M",
+            "dateNaissance": "1980-01-01",
+            "poste": "Directeur",
+            "telephone": "+237 600000000",
+            "email": "jean.dupont@example.com",
+            "adresse": "Yaoundé, Cameroun"
+        },
+        {
+            "nom": "Mbarga",
+            "prenom": "Alice",
+            "sexe": "F",
+            "dateNaissance": "1985-05-12",
+            "poste": "Enseignante",
+            "telephone": "+237 700000000",
+            "email": "alice.mbarga@example.com",
+            "adresse": "Douala, Cameroun"
+        },
+        {
+            "nom": "Ngono",
+            "prenom": "Paul",
+            "sexe": "M",
+            "dateNaissance": "1990-07-23",
+            "poste": "Surveillant",
+            "telephone": "+237 800000000",
+            "email": "paul.ngono@example.com",
+            "adresse": "Bafoussam, Cameroun"
+        }
+    ]
+}

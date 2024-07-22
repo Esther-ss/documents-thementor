@@ -1,0 +1,39 @@
+{
+    "personnels": [
+        {
+            "nom": "Dupont",
+            "prenom": "Jean",
+            "poste": "Directeur",
+            "telephone": "+237 650000001",
+            "email": "jean.dupont@example.com"
+        },
+        {
+            "nom": "Nguyen",
+            "prenom": "Sophie",
+            "poste": "Enseignante",
+            "telephone": "+237 650000002",
+            "email": "sophie.nguyen@example.com"
+        },
+        {
+            "nom": "Tchoupi",
+            "prenom": "Pierre",
+            "poste": "Surveillant",
+            "telephone": "+237 650000003",
+            "email": "pierre.tchoupi@example.com"
+        },
+        {
+            "nom": "Bamenda",
+            "prenom": "Alice",
+            "poste": "CPE",
+            "telephone": "+237 650000004",
+            "email": "alice.bamenda@example.com"
+        },
+        {
+            "nom": "Waza",
+            "prenom": "Marie",
+            "poste": "Professeur de Mathématiques",
+            "telephone": "+237 650000005",
+            "email": "marie.waza@example.com"
+        }
+    ]
+}

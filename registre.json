@@ -1,0 +1,22 @@
+{
+    "students": [
+      {
+        "studentName": "Jean Dupont",
+        "studentID": "123456",
+        "trimester1": 15,
+        "trimester2": 14,
+        "trimester3": 16,
+        "average": 15
+      },
+      {
+        "studentName": "Marie Durand",
+        "studentID": "654321",
+        "trimester1": 16,
+        "trimester2": 17,
+        "trimester3": 18,
+        "average": 17
+      }
+      // Ajoutez d'autres étudiants au besoin
+    ]
+  }
+  

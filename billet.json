@@ -1,0 +1,25 @@
+{
+    "company": {
+      "logo": "https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png",
+      "contact": "+237 XXXXXXX / +237 YYYYYYYY"
+    },
+    "signature": "Jean Dupont",
+    "tickets": [
+      {
+        "type": "entrée",
+        "date": "03/07/2024",
+        "time": "08:00",
+        "studentName": "Marie Claire",
+        "motif": "Rentrée scolaire"
+      },
+      {
+        "type": "sortie",
+        "date": "03/07/2024",
+        "time": "12:00",
+        "studentName": "Marie Claire",
+        "motif": "Rendez-vous médical"
+      }
+      // Ajoutez d'autres billets ici au besoin
+    ]
+  }
+  
