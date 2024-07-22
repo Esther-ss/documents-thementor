@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>School ID Card</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            /* width: 100%;*/
+            /*height: 100%;*/
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .id-card {
+            position: relative;
+            box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
+            border-radius: 8px;
+            width: 86mm;
+            height: 54mm;
+            /* box-sizing: border-box; */
+            padding: 1mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+         }
+
+        .id-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background-image: url("https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710356768680x521697901984806460/logo%20awae%20bilingual%20school.png?_gl=1*ro9hoq*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMzk0ODAzNy40Ni4xLjE3MTM5NTk5NDQuNjAuMC4w");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+            border-radius: 100px;
+            z-index: -1;
+        }
+
+        .flag {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .flag img,
+        #user-image {
+            width: 15mm;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        h1,
+        h2,
+        p {
+            text-align: center;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 8pt;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .photo,
+        .content,
+        .school-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+        }
+
+        .student-info {
+            margin-top: 6px;
+            height: 150px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .photo {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #user-image {
+            width: 90%;
+            height: 95%;
+            margin-right: 5px;
+        }
+
+        .content {
+            flex: 1;
+            height: 90%;
+            padding-left: 0mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            white-space: nowrap;
+            text-align: left; /* Aligner le texte à gauche */
+        }
+
+        .content p {
+            font-size: 10px;
+            margin: 0;
+            text-align: left; /* Aligner le texte à gauche */
+
+        }
+
+        .content .key {
+            font-weight: 600;
+        }
+        
+        .content .value {
+            font-weight: 700;
+            color: rgb(0, 64, 255);
+        }
+
+        .school-info p {
+            font-size: 8pt;
+            margin: 0;
+            font-weight: 550;
+            text-transform: uppercase;
+        }
+
+        .separator {
+            margin: 3px 0;
+        }
+
+        .separator h2 {
+            margin: 0;
+            font-size: 8pt;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .button-generate{
+            margin: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="id-card" id="id-card">
+        <div class="flag">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/langfr-1280px-Flag_of_Cameroon.svg.png" alt="Flag of Cameroon" />
+            <h1>MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES / MINISTRY OF SECONDARY EDUCATION</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/langfr-1280px-Flag_of_Cameroon.svg.png" alt="Flag of Cameroon" />
+        </div>
+        <div class="school-info">
+            <p>Awae Bilingual School</p>
+            <p>Carrefour Awae, Yaoundé, Cameroun</p>
+            <p>(+237) 677 31 63 66 / 698 01 23 20</p>
+        </div>
+        <div class="separator">
+            <h2>Carte D'Identité Scolaire / Student ID Card (2023/2024)</h2>
+        </div>
+        <div class="student-info">
+            <div class="photo">
+                <img id="user-image" src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1709312118604x705345548196993900/femme%20noire.jpeg?_gl=1*1a748f5*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMzk0ODAzNy40Ni4xLjE3MTM5NTE1MzUuNjAuMC4w" alt="User Image" />
+            </div>
+            <div class="content">
+                <p><span class="key">Nom / Lastname : </span><span class="value">Abega Mani</span></p>
+                <p><span class="key">Prénom / Firstname : </span><span class="value">Marie Noelle</span></p>
+                <p><span class="key">Numéro ID / ID number : </span><span class="value">00023H</span></p>
+                <p><span class="key">Né(e) le / Born on : </span><span class="value">28 Décembre 2002</span></p>
+                <p><span class="key">Genre / Gender : </span><span class="value">F</span></p>
+                <p><span class="key">Contact principal / Main contact : </span><span class="value">698 10 30 20</span></p>
+                <p><span class="key">Adresse / Address : </span><span class="value">Carrefour Biteng</span></p>
+                <p><span class="key">Classe / Class : </span><span class="value">4ème All</span></p>
+                <p><span class="key">Groupe sanguin / Blood group : </span><span class="value">AB+</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="button-generate" onclick="captureIDCard()">Go</button>
+
+<script>
+    function captureIDCard() {
+        const idCardElement = document.getElementById('id-card');
+        html2canvas(idCardElement, {
+            scale: 2,
+            useCORS: true,
+            logging: true,
+            onclone: function(documentClone) {
+                // Effectuer des ajustements dans le clone si nécessaire
+            }
+        }).then(canvas => {
+            const image = canvas.toDataURL("image/png");
+            const link = document.createElement('a');
+            link.download = 'id-card.png';
+            link.href = image;
+            link.click();
+        }).catch(error => {
+            console.error('html2canvas error:', error);
+        });
+    }
+    </script>
+</body>
+</html>
+
+
+
+
+<script>
+    function setupTableHeaders(periode) {
+ let headers = ["MATIÈRES", "COEF"];
+ switch(periode) {
+     case "1ère Séquence":
+         headers.push("SEQ 1");
+         break;
+     case "2ème Séquence":
+         headers.push("SEQ 2");
+         break;
+     case "1er Trimestre":
+         headers.push("SEQ 1", "SEQ 2");
+         break;
+     case "3ème Séquence":
+         headers.push("SEQ 3");
+         break;
+     case "4ème Séquence":
+         headers.push("SEQ 4");
+         break;
+     case "2ème Trimestre":
+         headers.push("SEQ 3", "SEQ 4");
+         break;
+     case "5ème Séquence":
+         headers.push("SEQ 5");
+         break;
+     case "6ème Séquence":
+         headers.push("SEQ 6");
+         break;
+     case "3ème Trimestre":
+         headers.push("SEQ 5", "SEQ 6");
+         break;
+     default:
+         alert("Période non reconnue: " + periode);
+         return; // Pour prévenir l'ajout d'en-têtes incorrects
+ }
+ headers.push("MOY", "N * C", "RANG", "APPRECIATION", "VISA");
+
+ let table = document.querySelector(".notes-table");
+ while (table.rows.length > 0) {
+     table.deleteRow(0); // Nettoie la table avant de configurer les nouveaux en-têtes
+ }
+ let headerRow = table.insertRow(0);
+ headers.forEach(header => {
+     let th = document.createElement("th");
+     th.textContent = header;
+     headerRow.appendChild(th);
+ });
+}
+       
+       function generateNotesTable(periode) {
+           var matieres = ["Français", "Mathématiques", "Physique", "Chimie"];
+           var professeurs = ["Mme Youmbi Sophie", "M. Tchoumi Paul", "Mme Nkoumou Lucie", "M. Ngombe Jean"];
+           var coefficients = [3, 4, 2, 2];
+           var notes = {
+               '1': [12, 15, 9, 13],
+               '2': [14, 14, 10, 12],
+               '3': [11, 12, 8, 10],
+               '4': [13, 14, 9, 11],
+               '5': [10, 12, 7, 9],
+               '6': [12, 13, 8, 10]
+           };
+           var appreciations = [
+               "Bonne compréhension des concepts.",
+               "Excellente participation en classe.",
+               "Nécessite une amélioration dans les domaines clés.",
+               "Très bonne progression ce trimestre."
+           ];
+           var rangs = ["12", "7", "15", "2"];  // Liste de rangs pour chaque matière
+           var visas = [
+               "https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1712406205833x695215266337524400/signature_image.png?_gl=1*1oo31t4*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxNDM3OTA5Ny41MC4xLjE3MTQ0MjYyNjQuNjAuMC4w",
+               "url_signature_paul.jpg",
+               "https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1712406205833x695215266337524400/signature_image.png?_gl=1*1oo31t4*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxNDM3OTA5Ny41MC4xLjE3MTQ0MjYyNjQuNjAuMC4w",
+               "url_signature_jean.jpg"
+           ];
+       
+           let table = document.querySelector(".notes-table");
+           while (table.rows.length > 0) {
+               table.deleteRow(0);
+           }
+       
+           setupTableHeaders(periode);
+       
+           matieres.forEach((matiere, index) => {
+               let row = table.insertRow(-1);
+               row.insertCell(-1).textContent = matiere + " (" + professeurs[index] + ")";
+               row.insertCell(-1).textContent = coefficients[index];
+       
+               let seqNums = periode.includes("séquence") ? [parseInt(periode[0])] : [1, 2];
+               let total = 0;
+               seqNums.forEach(seqNum => {
+                   let note = notes[seqNum.toString()][index];
+                   let cell = row.insertCell(-1);
+                   cell.textContent = note;
+                   total += note;
+               });
+       
+               let moyenne = total / seqNums.length;
+               row.insertCell(-1).textContent = moyenne.toFixed(1);
+               row.insertCell(-1).textContent = (moyenne * coefficients[index]).toFixed(1);
+               row.insertCell(-1).textContent = rangs[index];  // Utilisez les rangs prédéfinis
+               row.insertCell(-1).textContent = appreciations[index];
+       
+               let visaCell = row.insertCell(-1);
+               let img = document.createElement('img');
+               img.src = visas[index];
+               img.alt = "Signature de " + professeurs[index];
+               img.style.height = '50px';
+               visaCell.appendChild(img);
+           });
+       }
+       
+       document.addEventListener("DOMContentLoaded", function() {
+           generateNotesTable("2ème Séquence");
+       });
+       </script>

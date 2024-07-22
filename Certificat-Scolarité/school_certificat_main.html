@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificat de scolarité</title>
+    <style>
+        /* Insérez ici le CSS que vous avez fourni */
+        .report {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            font-family: Arial;
+            /* background-color: aquamarine; */
+            font-size: 12px;
+            border-color: black;
+            border-style: dashed;
+            /* background-image: url('https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png?_gl=1*1k662ef*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMDE5MTA2Mi4xNC4xLjE3MTAyNTIwMjUuNDIuMC4w'); */
+            background-size: 200px 200px;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* Centre l'image horizontalement et verticalement */
+            /* opacity: 0.5; Applique l'opacité uniquement à l'image de fond */
+        }
+
+        .page {
+            width: 100%;
+            height: 100%;
+            padding: 5mm;
+            box-sizing: border-box;
+        }
+
+        .subpage {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header-left {
+            float: left;
+            width: 30%;
+        }
+
+        .header-center {
+            display: inline-block;
+            width: 40%;
+            text-align: center;
+        }
+
+        .header-right {
+            float: right;
+            width: 30%;
+        }
+
+        .school-info {
+            white-space: nowrap;
+            /* Empêche le texte de passer à la ligne */
+        }
+
+        .school-logo {
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+            margin-top: 0px;
+        }
+
+        .ministere,
+        .ministry-english {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            white-space: nowrap;
+            /* Empêche le texte de passer à la ligne */
+        }
+
+        .titre-certificat {
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            width: 70%;
+            height: 35px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            border: 3px solid black;
+            background-color: #f0f0f0;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+       
+        .contenu-text {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+
+
+        .info-left,
+        .info-right {
+            width: 40%;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-right {
+            text-align: right;
+        }
+
+        .info-left p,
+        .info-right p {
+            margin: 5px 0;
+            /* font-weight: bold; */
+            font-size: 13px;
+            white-space: nowrap;
+            /* Empêche le texte de passer à la ligne */
+
+        }
+
+        .text {
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .text-right {
+            text-align: right;
+            margin-top: 30px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report">
+        <div class="page">
+            <div class="subpage">
+                <div class="header-left">
+                    <div class="ministere">RÉpublique du cameroun<br>
+                        MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+                    </div>
+                    <div class="school-info">
+                        ******************
+                        <br>
+                        NOM DE L'ÉCOLE
+                        <br>
+                        DÉVISE DE L'ECOLE
+                        <br>
+                        BP 1038, YAOUNDÉ - CAMEROUN
+                        <br>
+                        Tel: +237 XXXXXXX / +237 YYYYYYYY
+                    </div>
+                </div>
+
+                <div class="header-center">
+                    <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png?_gl=1*1k662ef*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMDE5MTA2Mi4xNC4xLjE3MTAyNTIwMjUuNDIuMC4w"
+                        alt="Logo de l'école" class="school-logo">
+                </div>
+
+                <div class="header-right">
+                    <div class="ministry-english">Republic of cameroon<br>
+                        MINISTRY OF SECONDARY EDUCATION
+                    </div>
+                    <div class="school-info">
+                        ******************
+                        <br>
+                        SCHOOL NAME
+                        <br>
+                        SCHOOL MOTTO
+                        <br>
+                        PoBox: 1038, YAOUNDE - CAMEROON
+                        <br>
+                        Tel: +237 XXXXXXX / +237 YYYYYYYY
+                    </div>
+                </div>
+
+                <br>
+                <div class="titre-certificat">
+                    Certificat de scolarité / ATTESTATION OF REGISTRATION
+                </div>
+
+                <div class="contenu-text">
+
+                    <p class="text">Je soussigné(e) Le Chef d'Établissement de <b>Awae Bilingual School</b>, atteste que
+                        : </p>
+                    <p class="text" style="font-style: italic;">I, the undersigned Head Teacher of <b>Awae Bilingual
+                            School</b>, certify that :</p>
+                    </br>
+                    <p class="text"><b>ABEGA MANI Marie Noelle</b></p>
+                    </br>
+                    <p class="text">Fils ou fille de / Son or daughter of : <b>KAMDEM Honoré</b> et de / and of <b>SOPPO
+                            Stéphanie</b></p>
+                    </br>
+                    <p class="text">Né(e) le / Born on: <b>23 AOUT 2005</b> à / at <b>YAOUNDÉ</b></p>
+                    </br>
+                    <p class="text">Est régulièrement inscrit(e) dans mon Établissement en classe de <b>5ème All</b></p>
+                    <p class="text" style="font-style: italic;">Is regularly enrolled in my school in class of <b>5ème
+                            All</b></p>
+                    </br>
+                    <p class="text">Pour l'année académique: <b>2023/2024</b> sous le numéro matricule :
+                        <b>74SBIO16</b>.</p>
+                    <p class="text" style="font-style: italic;">For the academic year: <b>2023/2024</b> under
+                        registration number: <b>74SBIO16</b></p>
+                    </br>
+                    <p class="text">En foi de quoi, le présent certificat lui est délivré pour servir et valoir ce que
+                        de droit.</p>
+                    <p class="text" style="font-style: italic;">In witness whereof, the present certificate is issued to
+                        serve and be valid for all intents and purposes.</p>
+                    </br>
+                    <div class="text-right">
+                        <p class="text">Fait à Yaoundé, le <b>24 Mars 2024</b></p>
+                        <p class="text" style="font-style: italic;">Done at Yaoundé, on <b>March 24th 2024</b></p>
+                        </br>
+                        <p class="text" style="margin-top: 20px;">Le Chef d'Établissement / The Head Teacher</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
