@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion du Matériel Didactique</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left, .header-right {
+            text-align: center;
+        }
+
+        .header-center {
+            text-align: center;
+        }
+
+        .school-name {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .school-motto {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .school-info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .ministere {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .ministry-english {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #555;
+        }
+
+        td {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <div class="ministere">MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES</div>
+            <div class="school-info">ÉCOLE PRIMAIRE XYZ<br>DÉVISE DE L'ÉCOLE<br>B.P. 1038, YAOUNDÉ - CAMEROUN<br>Tel: +237 XXXXXXX / +237 YYYYYYYY</div>
+        </div>
+
+        <div class="header-center">
+            <img src="chemin/vers/le/logo.png" alt="Logo de l'école" style="max-width: 100%; height: auto;">
+        </div>
+
+        <div class="header-right">
+            <div class="ministry-english">MINISTRY OF SECONDARY EDUCATION</div>
+            <div class="school-info">SCHOOL NAME<br>SCHOOL MOTTO<br>PoBox: 1038, YAOUNDE - CAMEROON<br>Tel: +237 XXXXXXX / +237 YYYYYYYY</div>
+        </div>
+    </div>
+
+    <div class="title">
+        Gestion du Matériel Didactique
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Désignation</th>
+                <th>Quantité</th>
+                <th>État</th>
+                <th>Observations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les données seront insérées dynamiquement ici -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Exemple de données JSON simulées
+    const materielDidactique = [
+        { designation: 'Tableau Interactif', quantite: 3, etat: 'Bon', observations: 'Installé dans les salles 101, 102, et 103' },
+        { designation: 'Manuels Scolaires', quantite: 150, etat: 'Neuf', observations: 'Nouveaux manuels pour l\'année scolaire' }
+    ];
+
+    // Sélectionner le corps du tableau
+    const tbody = document.querySelector('tbody');
+
+    // Remplir le tableau avec les données JSON
+    materielDidactique.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.designation}</td>
+            <td>${item.quantite}</td>
+            <td>${item.etat}</td>
+            <td>${item.observations}</td>
+        `;
+        tbody.appendChild(row);
+    });
+});
+</script>
+</body>
+</html>

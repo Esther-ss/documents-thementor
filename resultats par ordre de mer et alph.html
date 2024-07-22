@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Résultats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 210mm;
+            height: 297mm;
+            margin: auto;
+            padding: 20mm;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f8f8;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .label-bold {
+            font-weight: bold;
+        }
+
+        /* Styles spécifiques pour l'en-tête ministériel */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .header-left, .header-right {
+            width: 30%;
+        }
+
+        .header-center {
+            width: 40%;
+            text-align: center;
+        }
+
+        .ministere, .ministry-english {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .school-info {
+            white-space: pre-line;
+        }
+
+        .school-logo {
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+            margin: 0 auto; /* Pour centrer le logo */
+            display: block; /* Pour s'assurer qu'il est centré */
+        }
+
+        .titre-document {
+            margin: auto;
+            margin-top: 10px;
+            width: 50%;
+            height: 30px;
+            padding-top: 10px;
+            text-align: center;
+            border: 3px solid black;
+            background-color: #f0f0f0;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <div class="ministere">
+                MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES
+            </div>
+            <div class="school-info">
+                ******************
+                <br />
+                NOM DE L'ÉCOLE
+                <br />
+                DÉVISE DE L'ECOLE
+                <br />
+                BP 1038, YAOUNDÉ - CAMEROUN
+                <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+
+        <div class="header-center">
+            <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png"
+                 alt="Logo de l'école" class="school-logo"/>
+        </div>
+
+        <div class="header-right">
+            <div class="ministry-english">
+                MINISTRY OF SECONDARY EDUCATION
+            </div>
+            <div class="school-info">
+                ******************
+                <br />
+                SCHOOL NAME
+                <br />
+                SCHOOL MOTTO
+                <br />
+                PoBox: 1038, YAOUNDE - CAMEROON
+                <br />
+                Tel: +237 XXXXXXX / +237 YYYYYYYY
+            </div>
+        </div>
+    </div>
+
+    <div class="titre-document">
+        Liste des Résultats
+    </div>
+
+    <h2>Par Ordre Alphabétique</h2>
+    <table id="alphabeticalTable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom de l'Élève</th>
+            <th>Prénom de l'Élève</th>
+            <th>Moyenne Générale</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Les données seront ajoutées ici par JavaScript -->
+        </tbody>
+    </table>
+
+    <h2>Par Ordre de Mérite</h2>
+    <table id="meritTable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom de l'Élève</th>
+            <th>Prénom de l'Élève</th>
+            <th>Moyenne Générale</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Les données seront ajoutées ici par JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('ordre.json')  // Assurez-vous que le fichier JSON est accessible à cette URL
+            .then(response => response.json())
+            .then(students => {
+                const alphabeticalTableBody = document.getElementById('alphabeticalTable').querySelector('tbody');
+                const meritTableBody = document.getElementById('meritTable').querySelector('tbody');
+
+                const sortedByAlphabet = [...students].sort((a, b) => a.nom.localeCompare(b.nom));
+                const sortedByMerit = [...students].sort((a, b) => b.moyenne - a.moyenne);
+
+                sortedByAlphabet.forEach((student, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${student.nom}</td>
+                        <td>${student.prenom}</td>
+                        <td>${student.moyenne.toFixed(2)}</td>
+                    `;
+                    alphabeticalTableBody.appendChild(row);
+                });
+
+                sortedByMerit.forEach((student, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${student.nom}</td>
+                        <td>${student.prenom}</td>
+                        <td>${student.moyenne.toFixed(2)}</td>
+                    `;
+                    meritTableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Erreur lors du chargement des données:', error));
+    });
+</script>
+</body>
+</html>

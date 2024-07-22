@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des élèves</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            page-break-inside: avoid;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .header-section {
+            text-align: center;
+            border: 1px dotted black;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .header-center img {
+            height: 100px;
+        }
+
+        .ministere, .ministry-english {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .school-info {
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .header-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .header-text-left p {
+            margin: 10px 0;
+            font-size: 10pt;
+        }
+
+        .header-text-right {
+            text-align: right;
+        }
+
+        .table-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .table-title h2 {
+            margin: 0;
+            font-size: 16pt;
+            font-weight: bold;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            font-size: 8pt;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: left;
+            word-wrap: break-word;
+        }
+
+        .total-table th, .total-table td {
+            border: 1px dotted black;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            font-size: 10pt;
+            border-top: 1px dotted black;
+            padding-top: 10px;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                background-color: white;
+            }
+            .container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 20mm;
+                box-shadow: none;
+                page-break-after: avoid;
+            }
+            .footer {
+                position: absolute;
+                bottom: 30mm;
+                left: 20mm;
+                right: 20mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-section">
+                <div class="ministere">République du Cameroun<br>Paix - Travail - Patrie</div>
+                <div class="ministere">MINISTÈRE DES ENSEIGNEMENTS SECONDAIRES</div>
+                <div class="school-info">
+                    BP: 000 YAOUNDÉ<br>
+                    Tel: 676594602 / 693251863
+                </div>
+            </div>
+            <div class="header-section header-center">
+                <img src="https://8e88574f1c4ccff60147f8042d186225.cdn.bubble.io/f1710195333223x770432881526755600/logo%20awae%20bilingual%20school.png?_gl=1*1k662ef*_gcl_au*MTA1NzY3NDY1NC4xNzA4OTg0NTg1*_ga*MjAzNzkzNzUwNC4xNzA4OTg0NTgw*_ga_BFPVR2DEE2*MTcxMDE5MTA2Mi4xNC4xLjE3MTAyNTIwMjUuNDIuMC4w" alt="Logo de l'école" class="school-logo">
+            </div>
+            <div class="header-section">
+                <div class="ministere">Republic of Cameroon<br>Peace - Work - Fatherland</div>
+                <div class="ministry-english">MINISTRY OF SECONDARY EDUCATION</div>
+                <div class="school-info">
+                    GSBMK2<br>
+                    Discipline - Travail - Succès
+                </div>
+            </div>
+        </header>
+        <div class="table-title">
+            <h2><U>LISTE DE TOUS LES ELEVES</U></h2>
+        </div>
+        <div class="header-text">
+            
+            <div class="header-text-left">
+                <p><b>Année Scolaire:</b> 2024-2025</p>
+                <p><b>CYCLE:</b> PREMIER CYCLE FRANCOPHONE SECOND</p>
+                
+            </div>
+            <div class="header-text-right">
+                <p><b>Niveau:</b> 3ème</p>
+            </div>
+        </div>
+      
+        <div class="table-container">
+            <table class="total-table"><p><b>Classe: 3ème A4 ALL</b></p>
+                <thead>
+                    <tr>
+                        <th>Total</th>
+                        <th>Garçons</th>
+                        <th>Filles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12</td>
+                        <td>8</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numéro</th>
+                        <th>Matricule</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Date de Naissance</th>
+                        <th>Lieu de Naissance</th>
+                        <th>Sexe</th>
+                        <th>Redouble</th>
+                        <th>Année</th>
+                        <th>Parents</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                    <!-- Les lignes seront ajoutées ici par JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Version 2.0</p>
+        <p>Signature et Cachet</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('students.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('studentsTableBody');
+                    data.forEach(student => {
+                        const row = document.createElement('tr');
+                        Object.values(student).forEach(value => {
+                            const cell = document.createElement('td');
+                            cell.textContent = value;
+                            row.appendChild(cell);
+                        });
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Erreur lors du chargement des données JSON:', error));
+        });
+    </script>
+</body>
+</html>

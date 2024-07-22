@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.link-container {
+  display: flex;
+  gap: 20px;
+}
+
+.link-container a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+#tickets-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  max-width: 800px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.ticket {
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(50% - 40px);
+  box-sizing: border-box;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-header .logo {
+  width: 50px;
+  height: auto;
+}
+
+.ticket-type {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.ticket-signature {
+  margin-top: 20px;
+  text-align: right;
+  font-style: italic;
+}
+
+.signature {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.5em;
+}
+
+@media print {
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 20mm;
+    box-sizing: border-box;
+  }
+  
+  #tickets-container {
+    width: 100%;
+    height: auto;
+  }
+  
+  .ticket {
+    width: calc(25% - 20px);
+    margin: 10px;
+   

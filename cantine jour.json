@@ -1,0 +1,45 @@
+{
+    "menu": [
+      {
+        "jour": "Lundi",
+        "plat": [
+          "Riz aux légumes",
+          "Salade verte",
+          "Yaourt nature"
+        ]
+      },
+      {
+        "jour": "Mardi",
+        "plat": [
+          "Poulet rôti",
+          "Purée de pommes de terre",
+          "Compote de fruits"
+        ]
+      },
+      {
+        "jour": "Mercredi",
+        "plat": [
+          "Poisson grillé",
+          "Riz pilaf",
+          "Fruit de saison"
+        ]
+      },
+      {
+        "jour": "Jeudi",
+        "plat": [
+          "Lasagnes végétariennes",
+          "Haricots verts",
+          "Crème dessert au chocolat"
+        ]
+      },
+      {
+        "jour": "Vendredi",
+        "plat": [
+          "Steak haché",
+          "Frites maison",
+          "Salade de fruits"
+        ]
+      }
+    ]
+  }
+  

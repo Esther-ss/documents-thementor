@@ -1,0 +1,14 @@
+{
+    "studentName": "Marie Claire",
+    "studentID": "123456",
+    "studentClass": "Classe de 6ème",
+    "schoolYear": "2024-2025",
+    "directorName": "Jean Dupont",
+    "grades": [
+        { "name": "Mathématiques", "trimester1": 15, "trimester2": 14, "trimester3": 16 },
+        { "name": "Français", "trimester1": 14, "trimester2": 15, "trimester3": 13 },
+        { "name": "Anglais", "trimester1": 13, "trimester2": 12, "trimester3": 14 },
+        { "name": "Histoire", "trimester1": 12, "trimester2": 13, "trimester3": 15 },
+        { "name": "Géographie", "trimester1": 16, "trimester2": 14, "trimester3": 15 }
+    ]
+}

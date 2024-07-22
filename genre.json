@@ -1,0 +1,53 @@
+{
+  "classes": [
+    {
+      "className": "Classe de 6ème",
+      "boys": 25,
+      "girls": 20,
+      "repeatBoys": 2,
+      "repeatGirls": 1
+    },
+    {
+      "className": "Classe de 5ème",
+      "boys": 23,
+      "girls": 22,
+      "repeatBoys": 1,
+      "repeatGirls": 2
+    },
+    {
+      "className": "Classe de 4ème",
+      "boys": 28,
+      "girls": 26,
+      "repeatBoys": 3,
+      "repeatGirls": 3
+    },
+    {
+      "className": "Classe de 3ème",
+      "boys": 30,
+      "girls": 28,
+      "repeatBoys": 4,
+      "repeatGirls": 2
+    },
+    {
+      "className": "Classe de 2nde",
+      "boys": 24,
+      "girls": 25,
+      "repeatBoys": 2,
+      "repeatGirls": 3
+    },
+    {
+      "className": "Classe de 1ère",
+      "boys": 22,
+      "girls": 21,
+      "repeatBoys": 1,
+      "repeatGirls": 1
+    },
+    {
+      "className": "Classe de Terminale",
+      "boys": 20,
+      "girls": 18,
+      "repeatBoys": 1,
+      "repeatGirls": 1
+    }
+  ]
+}

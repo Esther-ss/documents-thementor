@@ -1,0 +1,16 @@
+{
+    "activites": [
+      { "date": "2024-08-01", "activite": "Réunion de planification", "responsable": "Jean Dupont", "statut": "Terminée" },
+      { "date": "2024-08-05", "activite": "Formation pédagogique", "responsable": "Marie Lefevre", "statut": "En cours" },
+      { "date": "2024-08-10", "activite": "Rencontre parents-enseignants", "responsable": "Sophie Martin", "statut": "Prévue" }
+    ],
+    "statistiques": [
+      { "description": "Nombre d'élèves inscrits", "chiffre": "300" },
+      { "description": "Moyenne de présence des enseignants", "chiffre": "95%" },
+      { "description": "Taux de réussite aux examens", "chiffre": "85%" }
+    ],
+    "resume": {
+      "texte": "Nous avons eu des difficultés au niveau de la gestion du matériel didactique"
+    }
+  }
+  

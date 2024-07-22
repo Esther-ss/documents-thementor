@@ -1,0 +1,13 @@
+[
+    { "number": 1, "matricule": "MK2222111", "nom": "AMPOUM ABIBEH", "prenom": "MIRANDA", "dateNaissance": "05/06/2007", "lieuNaissance": "OKYOABOUMA", "sexe": "F", "redouble": "NON", "annee": "A", "parents": "ABIBEH ANCIET" },
+    { "number": 2, "matricule": "MK2222112", "nom": "BAMI BAYO", "prenom": "MARIUS RICARDO", "dateNaissance": "10/05/2007", "lieuNaissance": "BANDJOUA", "sexe": "G", "redouble": "NON", "annee": "A", "parents": "BAYO NKOUNEDJIN" },
+    { "number": 3, "matricule": "MK2221770", "nom": "BOBO HAYATO", "prenom": "MOISE", "dateNaissance": "04/09/2007", "lieuNaissance": "YAOUNDE", "sexe": "G", "redouble": "NON", "annee": "A", "parents": "BOBO JEAN" },
+    { "number": 4, "matricule": "MK2221188", "nom": "KLAUS MARC-AUREL", "prenom": "KOUMENI", "dateNaissance": "18/08/2006", "lieuNaissance": "BANDJOUA", "sexe": "G", "redouble": "NON", "annee": "A", "parents": "FODOM KOUEMO JOEL" },
+    { "number": 5, "matricule": "MK2220118", "nom": "KOM NOJADJE", "prenom": "ABIGAIL MURIELLE", "dateNaissance": "09/08/2007", "lieuNaissance": "YAOUNDE", "sexe": "F", "redouble": "NON", "annee": "A", "parents": "EIEGAN" },
+    { "number": 6, "matricule": "MK2220233", "nom": "MAFOCK TENEKU", "prenom": "MAIVA ORCHELLE", "dateNaissance": "24/07/2007", "lieuNaissance": "DSCHANG", "sexe": "F", "redouble": "NON", "annee": "A", "parents": "TENEKU TENEKU VALERY FRANCK" },
+    { "number": 7, "matricule": "MK2220223", "nom": "MOCHEA", "prenom": "NOELLE", "dateNaissance": "12/12/2007", "lieuNaissance": "YAOUNDE", "sexe": "F", "redouble": "NON", "annee": "A", "parents": "MOCHEA ALAIN" },
+    { "number": 8, "matricule": "MK2220244", "nom": "MEKETE", "prenom": "SERGE ARTHUR", "dateNaissance": "22/02/2007", "lieuNaissance": "BANDJOUA", "sexe": "G", "redouble": "NON", "annee": "A", "parents": "CHATAP SAN HINOSC" },
+    { "number": 9, "matricule": "MK2222014", "nom": "NKONGMEN", "prenom": "SANDIE DANIELE", "dateNaissance": "14/05/2007", "lieuNaissance": "BANDJOUA", "sexe": "F", "redouble": "NON", "annee": "A", "parents": "NKONGMEN LEVE" },
+    { "number": 10, "matricule": "MK2221141", "nom": "TONKAN", "prenom": "MOISE", "dateNaissance": "09/09/2007", "lieuNaissance": "YAOUNDE", "sexe": "G", "redouble": "NON", "annee": "A", "parents": "ESEME SAMUEL" },
+    { "number": 11, "matricule": "MK2222115", "nom": "TCHOUDJI TCHOUMA", "prenom": "NOEL NADJIB", "dateNaissance": "03/09/2006", "lieuNaissance": "KOMBASSAM", "sexe": "G", "redouble": "NON", "annee": "A", "parents": "DONGMO MOISE" },
+    { "number": 12, "matricule": "MK2200049", "nom": "VANS PIERRE-KAREL", "prenom": "FOMO", "dateNaissance": "24/09/2011", "lieuNaissance": "YAOUNDE", "sexe": "G", "redouble": "NON", "annee": "A", "parents": "FODOM KOUEMO JOEL" }]

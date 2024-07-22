@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de la Cantine Scolaire</title>
+    <style>
+/* Styles globaux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Couleur de fond */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff; /* Couleur de fond du tableau */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50; /* Couleur de fond de l'en-tête */
+    color: white; /* Couleur du texte de l'en-tête */
+    text-transform: uppercase;
+}   
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Couleur de fond des lignes paires */
+}
+
+tr:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Menu de la Cantine Scolaire</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Jour</th>
+                <th>Menu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les données seront ajoutées ici par JavaScript -->
+        </tbody>
+    </table>
+
+    <script>document.addEventListener('DOMContentLoaded', () => {
+        fetch('cantine jour.json')
+            .then(response => response.json())
+            .then(data => {
+                const menu = data.menu;
+                const tbody = document.querySelector('tbody');
+    
+                menu.forEach(item => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${item.jour}</td>
+                        <td>${item.plat.join('<br>')}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Erreur lors du chargement du menu:', error));
+    });
+    </script>
+</body>
+</html>

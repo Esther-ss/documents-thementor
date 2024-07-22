@@ -1,0 +1,7 @@
+[
+    { "nom": "Doe", "prenom": "John", "moyenne": 15.6 },
+    { "nom": "Smith", "prenom": "Jane", "moyenne": 17.4 },
+    { "nom": "Johnson", "prenom": "Michael", "moyenne": 12.8 },
+    { "nom": "Williams", "prenom": "Jessica", "moyenne": 14.2 },
+    { "nom": "Brown", "prenom": "David", "moyenne": 16.0 }
+]

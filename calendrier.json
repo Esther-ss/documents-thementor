@@ -1,0 +1,22 @@
+[
+    {
+        "date": "2024-09-01",
+        "evenement": "Rentrée des classes",
+        "description": "Début de l'année scolaire"
+    },
+    {
+        "date": "2024-10-15",
+        "evenement": "Vacances de mi-trimestre",
+        "description": "Pause de mi-trimestre"
+    },
+    {
+        "date": "2024-12-20",
+        "evenement": "Vacances de Noël",
+        "description": "Fin du premier trimestre"
+    },
+    {
+        "date": "2025-01-06",
+        "evenement": "Reprise des cours",
+        "description": "Début du deuxième trimestre"
+    }
+]
